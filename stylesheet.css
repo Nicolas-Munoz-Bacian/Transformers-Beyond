@@ -1,0 +1,924 @@
+:root{
+    --color-primario:#ffff;
+    --color-secundario:#7f1710;
+    --color-terciario:#f5edd6;
+    --color-cuarto:#0000;
+    --color-quinto:#dbffac;
+    --color-sexto:#dbe3e0;
+    --color-dorado:#efb810;
+    --color-gris-oscuro:#636571;
+    --color-azul:#1b4279;
+    --color-cyan:#02def3;
+    --color-cian:#00ffff;
+    --color-rojo:#e20613;
+    --fuente-principal:'Libre Franklin', 'Segoe UI', 'Arial', sans-serif;
+    --fuente-principal-negrita:'Inter', 'Segoe UI', 'Arial', sans-serif;
+    --fuente-principal-fina: 'Libre Franklin', 'Segoe UI', sans-serif;
+    --fuente-Sicret-Mono-PERSONAL:'Sicret Mono PERSONAL', bold;
+}
+
+*{
+    padding: 0%;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+/**---HEADER Y MENU--**/
+
+header {
+    width: 100vw; /* Asegura ancho completo */
+    background-color:black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/**---FONDO Y ESPACIO CENTRAL---**/
+
+body {
+    font-family: var(--fuente-principal);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color:rgb(36, 37, 38);
+    background-image: 
+        url("/img/"),
+        linear-gradient();
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* BOTÓN PERSONAJES */
+
+/* Estructura básica */
+.ul_menu {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+}
+
+/* Oculta el submenú por defecto */
+.submenu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: black;
+  padding: 10px;
+  border-radius: 8px;
+  z-index: 1000;
+  gap: 10px;
+}
+
+/* Muestra submenú al hacer hover */
+.submenu-wrapper {
+  position: relative;
+}
+
+.submenu-wrapper:hover .submenu {
+  display: flex;
+}
+
+/* Estilo para los links del submenú */
+.submenu-link {
+  font-family: var(--fuente-principal-negrita);
+  font-weight: bold;
+  padding: 10px 15px;
+  font-size: 14px;
+  text-decoration: none;
+  color: white;
+  background-color: black;
+  border-radius: 5px;
+  text-align: center;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+/* Hover especial para cada uno sin glitch */
+.submenu-link.humanos:hover {
+  background-color: cyan;
+  color: white;
+  box-shadow: 0 0 12px cyan;
+  transform: scale(1.05);
+}
+
+.submenu-link.autobots:hover {
+  background-color: #e20613;
+  color: white;
+  box-shadow: 0 0 12px #e20613;
+  transform: scale(1.05);
+}
+
+.submenu-link.decepticons:hover {
+  background-color: #6600ff;
+  color: white;
+  box-shadow: 0 0 12px #6600ff;
+  transform: scale(1.05);
+}
+
+/* Asegura que submenú no se corte por overflow */
+.menu_contenido {
+  overflow: visible;
+}
+
+/* Ajuste más preciso para navegadores móviles modernos */
+@supports (-webkit-touch-callout: none) {
+  .page-wrapper {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* EMBLEMA PROMOCIONAL (ESTRELLA BLANCA) */
+
+.emblema_con_estrella_blanca{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    padding: 5px 5px 5px 0;
+}
+
+.emblema_promocional{
+    display: flex;
+    width: 100%;
+    height: 100px;
+    margin-left: 10px;
+    flex-direction:column;
+    justify-content:center;
+    position: initial;
+}
+
+
+/** Contenedor para centrar y organizar el header **/
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    background-color:var(--color-primario); /* Fondo blanco*/
+    border-radius: 10px;
+    width: 90%;
+    margin: 20px auto;
+}
+
+/**---LOGO Y TÍTULO---**/
+
+.presentation-logo {
+    height: 100px; /* Ajusta según sea necesario */
+}
+
+.header-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo_Obersvatorio img {
+    width: 100%;
+    height: auto;
+    margin-left: 10px;
+}
+
+/**---MENÚ Y BOTONES---**/
+
+.menu {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.menu_contenido {
+    display: flex;
+    height: auto;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 15px;
+    padding: 10px;
+    position: relative;
+}
+
+.header__menú__link {
+    display: flex;
+    width: auto;
+    justify-content: center;
+}
+
+.btn {
+  background-color: black;
+  font-family: var(--fuente-principal-negrita);
+  font-weight: bold;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+nav a{ 
+  font-weight: 600; 
+  padding-right: 20px; 
+  display: flex; 
+} 
+
+nav a:hover{ 
+  color: none; 
+  display: flex; 
+}
+
+/* Hover con GLITCH */
+
+.btn:hover {
+  background-color: black;
+  color: var(--color-cyan);
+  transform: scale(1.05);
+  animation: 0.3s glitch infinite;
+  text-shadow: var(--color-rojo) 0, cyan 4px 0;
+}
+
+/* Estado activo (sin glitch) */
+.btn.active {
+  background-color: black;
+  color: var(--color-cyan);
+  transition: all 0.3s ease;
+}
+
+/* Glitch keyframes */
+@keyframes glitch {
+  0% {
+    text-shadow: red -4px 0, #00ffff 4px 0;
+  }
+  50% {
+    text-shadow: red 4px 0, cyan -4px 0;
+  }
+  100% {
+    text-shadow: red -4px 0, cyan 4px 0;
+  }
+}
+
+/** RESPONSIVIDAD **/
+
+/**Movil**/
+
+@media (max-width: 890px){
+    .desktop {
+        display: none;
+    }
+    .tablet {
+        display: none;
+    }
+    .movil {}
+
+    nav ul a{
+        font-size: 16px;
+        display: flex;
+    }
+        .header-title {
+    font-size: 1rem;
+    font-weight: bold;
+    }
+}
+
+/**Tablet**/
+
+@media (min-width: 768px) and (max-width: 990px){
+    .desktop {display: none;}
+    .tablet {}
+    .movil {display: none;}
+    .presentación__logo__personal {
+        width: 15%;
+    }
+
+    .presentación__enlaces__iconos {
+        width: auto;
+        gap: 15px;
+    }
+
+    .derechos_de_autor_text {
+        font-size: 70%;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+/**Escritorio**/
+
+@media (min-width: 990px){
+    .desktop {}
+    .tablet {display: none;}
+    .movil {display: none;}
+    
+    .ul_menu{
+        display: flex;
+        width: 100%;
+        height: 100%;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+    }
+    nav .ul_menu{
+        margin: 10px 0;
+        line-height: 30px;
+    }
+    nav .ul_menu a{
+        font-size: 20px;
+    }
+
+    .btn:hover {
+        background-color: black;
+        font-family: var(--fuente-principal-negrita);
+    }
+
+}
+
+/* Sinopsis */
+
+/* Título flotante encima del banner */
+.título__principal {
+    color: white;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-family: var(--fuente-principal-negrita);
+    z-index: 2;
+}
+
+.título{
+    font-family: var(--fuente-principal-negrita);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.sinopsis{
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.sinopsis_contenedor{
+    display: flex;
+    align-items: center;
+    font-family: var(--fuente-principal);
+    flex-wrap: wrap;
+    flex-direction: column;
+    color: var(--color-primario);
+    border-radius: 10px;
+    padding: 10px;
+    width: 50%;
+}
+
+.sobre-mi__texto,
+.cuadro_descripción {
+    font-family: var(--fuente-principal);
+    font-weight: 500;
+}
+
+/* ------------LAS TRES TEMPORADAS-----------*/
+
+/* Contenedor general */
+.seccion-temporadas {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+/* Título centrado */
+.titulo-temporadas {
+    font-family: var(--fuente-principal-negrita);
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: white;
+}
+
+/* Contenedor de botones */
+.contenedor-temporadas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Botón que envuelve la imagen */
+.temporada {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 10px;
+    transition: transform 0.5s ease;
+}
+
+/* Imagen */
+.temporada img {
+    width: 60%;
+    height: auto;
+    border-radius: 10px;
+    transition: box-shadow 0.5s ease, transform 0.5s ease;
+}
+
+/* Espaciado entre botones */
+.temporada {
+    margin: 10px 0;
+}
+
+/* Hover con iluminación por color personalizado */
+.temporada-1:hover img {
+    box-shadow: 0 0 25px #e20613, 0 0 50px #e20613;
+    transform: scale(1.03);
+}
+
+.temporada-2:hover img {
+    box-shadow: 0 0 25px cyan, 0 0 50px cyan;
+    transform: scale(1.03);
+}
+
+.temporada-3:hover img {
+    box-shadow: 0 0 25px #6600ff, 0 0 50px #6600ff;
+    transform: scale(1.03);
+}
+
+
+/* ------------PERSONAJES-----------*/
+
+.contenedor-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0; /* opcional para espacio arriba y abajo */
+}
+
+.logo_autobot {
+  height: 150px;
+}
+.personajes {
+  padding: 20px;
+  color: white;
+}
+
+.personajes {
+  padding: 40px;
+  color: white;
+}
+
+.personajes h2, .personajes h3 {
+  text-align: center;
+  margin-top: 40px;
+  font-family: var(--fuente-principal-negrita);
+  color: white;
+}
+
+.grupo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.cuadro {
+  width: 140px;
+  height: 180px;
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+  font-family: var(--fuente-principal-negrita);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cuadro img {
+  width: 136px;
+  height: 180px;
+  object-fit: cover;
+}
+
+.cuadro:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px #e20613;
+}
+
+
+
+.cuadro_2 {
+  width: 140px;
+  height: 180px;
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+  font-family: var(--fuente-principal-negrita);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cuadro_2 img {
+  width: 136px;
+  height: 180px;
+  object-fit: cover;
+}
+
+.cuadro_2:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px #6600ff;
+}
+
+/* Descripción y detalles de Personajes-Bots-Otros */
+
+/* ================================
+   PÁGINA DE PERSONAJE - LAYOUT BASE
+   ================================ */
+
+.personaje-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+  font-family: 'Libre Franklin', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #f5f5f5;
+}
+
+/* Intro + ficha derecha */
+.personaje-hero {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-bottom: 2.5rem;
+}
+
+/* Intro (párrafo tipo wiki) */
+.personaje-intro {
+  flex: 2;
+  background: rgba(10, 10, 20, 0.8);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  line-height: 1.7;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Ficha derecha */
+.personaje-ficha {
+  flex: 1.1;
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.08), rgba(5, 5, 15, 0.95));
+  border-radius: 1rem;
+  padding: 1.25rem 1.25rem 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.5);
+}
+
+/* Avatar / rostro */
+.personaje-avatar {
+  margin: 0 0 1rem 0;
+  text-align: center;
+}
+
+.personaje-avatar img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  border: 2px solid rgba(0, 255, 255, 0.6);
+  object-fit: cover;
+}
+
+/* Nombre grande */
+.personaje-nombre {
+  font-size: 1.6rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Datos dentro de la ficha */
+.personaje-datos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.personaje-datos .dato {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.8fr);
+  column-gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.dato-label {
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+.dato-valor {
+  opacity: 0.9;
+}
+
+/* ================================
+   SUMARIO
+   ================================ */
+
+.personaje-sumario {
+  background: rgba(5, 5, 15, 0.95);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.personaje-sumario-titulo {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.personaje-sumario-lista {
+  list-style: decimal;
+  margin: 0 0 0 1.3rem;
+  padding: 0;
+}
+
+.personaje-sumario-lista li {
+  margin: 0.25rem 0;
+}
+
+.personaje-sumario-lista a {
+  color: #8defff;
+  text-decoration: none;
+}
+
+.personaje-sumario-lista a:hover {
+  text-decoration: underline;
+}
+
+/* ================================
+   CONTENIDO PRINCIPAL (SECCIONES)
+   ================================ */
+
+.personaje-contenido {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.personaje-bloque-titulo {
+  font-size: 1.4rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  padding-bottom: 0.35rem;
+}
+
+.personaje-bloque p {
+  line-height: 1.7;
+}
+
+/* ================================
+   GRID PARA HABILIDADES Y GALERÍA
+   ================================ */
+
+.personaje-media-grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+}
+
+.personaje-media-item {
+  background: rgba(5, 5, 15, 0.95);
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.personaje-media-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.personaje-media-item figcaption {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+
+@media (max-width: 900px) {
+  .personaje-hero {
+    flex-direction: column;
+  }
+
+  .personaje-ficha {
+    max-width: 400px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .personaje-page {
+    padding: 1.5rem 1rem 2.5rem;
+  }
+
+  .personaje-intro {
+    padding: 1.25rem;
+  }
+
+  .personaje-nombre {
+    font-size: 1.4rem;
+  }
+}
+
+/* =========================================
+   TRANSFORMACIÓN: MODO BOT / MODO ALTERNO
+   ========================================= */
+
+.personaje-transformacion {
+  margin-bottom: 0.75rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
+}
+
+/* Barra azul con el nombre (inspirado en la captura) */
+.personaje-transformacion-nombre {
+  background: var(--color-rojo);
+  color: var(--color-primario);
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  font-size: 0.9rem;
+  padding: 0.45rem 0.75rem;
+}
+
+/* Tabs de transformación */
+.personaje-transformacion-tabs {
+  display: flex;
+  background: var(--color-primario);
+  font-size: 0.85rem;
+}
+
+.transformacion-tab {
+  flex: 1;
+  padding: 0.45rem 0.75rem;
+  border: none;
+  background: var(--color-primario);
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  text-align: center;
+  outline: none;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Estado normal (inactivo) */
+.transformacion-tab:not(.activo) {
+  color: #777777;
+}
+
+/* Activo: modo seleccionado */
+.transformacion-tab.activo {
+  color: var(--color-cyan);           /* tono verdoso tipo 'Traje de héroe' */
+  box-shadow: inset 0 -3px 0 var(--color-cyan);
+}
+
+/* Hover suave */
+.transformacion-tab:hover {
+  background: #f2f4f7;
+}
+
+/* Mostrar / ocultar imágenes según modo */
+.personaje-avatar {
+  margin-top: 0.9rem;
+  display: none;
+}
+
+.personaje-avatar.activo {
+  display: block;
+}
+
+/* Ajuste por si el alterno necesita un poquito menos de margen */
+.personaje-avatar--alterno {
+  margin-top: 0.9rem;
+}
+
+  /*------------------------------ DERECHOS DE AUTOR (COPYRIGHT) Y PIE DE PÁGINA (FOOTER) ---------------------------------*/
+
+.presentacion__foto {
+    background-image: var(--imagen-de-perfil);
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px;
+    border-radius: 50%;;
+    padding: 0px;
+}
+
+.footer {
+    background-color: var(--color-cuarto);
+    padding: 12px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contenido_footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.footer_text_contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: var(--color-primario);
+    width: 100%;
+}
+
+.presentación__logo {
+    display: flex;
+    height:100px;
+    flex-wrap: wrap;
+    object-fit: contain;
+}
+
+.presentación__enlaces__iconos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.Contenido_de_lado {
+    display: flex;
+    justify-content:center;
+    flex-wrap: wrap;
+    align-items: center;
+    font-family: var(--fuente-principal);
+    margin:  5px 5px;
+    position: relative;
+    
+}
+
+.contenido {
+    display: flex;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+.imagen {
+    width: 50%;
+    height: 320px;
+    margin-right: 10%;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin:  10px 0px;
+    flex-direction: column;
+}
+
+.Título-CONTACTO{
+  font-family: var(--fuente-principal-negrita);
+  color: var(--color-secundario);
+  font-size: 1.2rem;
+  display: block;
+  width: 100%;
+}

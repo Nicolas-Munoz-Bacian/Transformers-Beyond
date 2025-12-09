@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformers Beyond | Más allá de lo que ves | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="shortcut icon" href="assets/Autobots-Logotipo.png" type="image/x-icon">
+</head>
+
+    </head>
+<!-- Menú -->
+    <div class="page-wrapper">
+    <header class="header">
+        <div class="emblema_con_estrella_blanca">
+            <img class="emblema_promocional" src="img/material/Transformers Beyond (Emblema promocional).png"
+            alt="Logo principal">
+
+                <nav class="menu">
+        <menu class="menu_contenido">
+            <ul class="ul_menu">
+
+      <li><a class="header__menú__link" href="index.html"><input class="btn" type="button" value="INICIO"></a></li>
+
+      <li class="submenu-wrapper">
+        <input class="btn" type="button" value="PERSONAJES">
+        <ul class="submenu">
+            <li>
+            <a href="humanos.html" class="submenu-link humanos" href="humanos.html">Humanos</a>
+          </li>
+          <li>
+            <a href="autobots.html" class="submenu-link autobots" href="autobots.html">Autobots</a>
+          </li>
+          <li>
+            <a href="decepticons.html" class="submenu-link decepticons" href="decepticons.html">Decepticons</a>
+          </li>
+
+        </ul>
+      </li>
+                <a class="header__menú__link" href="temporadas.html"><input class="btn" id="btn-temporadas" type="button" value="TEMPORADAS"></input></a>
+                <a class="header__menú__link" href="tecnologías.html"><input class="btn" id="btn-tecnologías" type="button" value="TECNOLOGÍAS"></input></a>
+            </ul  class="ul_menu">
+        </menu>
+    </nav>
+        </div>
+    </header>
+    
+<body>
+
+    <!-- Sección de Sinopsis -->
+<section class="sinopsis" id="sinopsis">
+                <h1 class="título__principal">¡Bienvenido a Transformers Beyond!</h1>
+
+<br>
+<br>
+        <div class="sinopsis_contenedor">
+            <div class="título">Sinopsis</div>
+            <br>
+            <div class="cuadro_descripción">
+                En la Tierra, la humanidad ha perfeccionado la tecnología, hasta crear mechas pilotables, sin saber que, en secreto, se libra una guerra mucho más antigua.
+                 Treinta años atrás, la nave Arca se estrelló, trayendo consigo a los Autobots, liderados por Optimus Prime, y a sus eternos enemigos, los Decepticons,
+                  comandados por Megatron. Ambos bandos buscan los fragmentos dispersos del Allspark, fuente de toda vida Transformer.
+                  <br><br>
+                  En el presente, año 2067, Spike Witwicky, un joven ingeniero de 17 años de corazón fuerte que anhela ser “más de lo que parece”,
+                   marcado por una tragedia familiar se muda desde Estados Unidos a Japón para estudiar en la Academia Shinsei, una prestigiosa institución dedicada al pilotaje de mechas.
+                    Allí conoce a Carla Shimizu, una hermosa piloto prodigio y campeona nacional, tan talentosa como orgullosa, que en secreto oculta su lado otaku.
+                <br><br>
+                Tras un encuentro fortuito con un fragmento del Allspark, Spike descubre la existencia de los Autobots—que habitan en el Arca camuflada en un depósito de chatarra sobre
+                 una isla artificial—que es donde vive Spike y forja un vínculo que cambiará su destino. Más tarde, junto a Carla, se convierten en aliados de Optimus Prime y su equipo,
+                  enfrentando a los Decepticons mientras aprenden que el verdadero poder no proviene del metal, sino del corazón del humano de la Chispa capaz de trascenderlos.
+            </div>
+        </div>
+</section>
+
+
+    <!-- Sección de personajes -->
+<section>
+
+    <span class="portbox-text"></span>
+    <div id="personajes">
+        
+    </div>
+</section>
+
+<!-- Sección de TEMPORADAS -->
+<section class="seccion-temporadas">
+  <h2 class="titulo-temporadas">Temporada 1</h2>
+
+  <div class="contenedor-temporadas">
+    <button class="temporada temporada-1">
+      <img src="img/material/Transformers Beyond (Temporada 1).png" alt="Temporada 1">
+    </button>
+
+    <h2 class="titulo-temporadas">Temporada 2</h2>
+    <button class="temporada temporada-2">
+      <img src="img/material/Transformers Beyond (Temporada 2).png" alt="Temporada 2">
+    </button>
+
+    <h2 class="titulo-temporadas">Temporada 3</h2>
+    <button class="temporada temporada-3">
+      <img src="img/material/Transformers Beyond (Temporada 3).png" alt="Temporada 3">
+    </button>
+  </div>
+</section>
+
+        <div class="Contenido_central_volver_arriba">
+            <button class="btn_volver_arriba" id="volver-arriba">Volver arriba</button>
+        </div>
+                    
+            <!-- Tu código Javascript -->
+<script>
+    const botonVolver = document.getElementById('volver-arriba');
+
+    botonVolver.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    const nombreInput = document.querySelector('input[name="nombre"]');
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', (event) => {
+        const nombre = nombreInput.value.trim();
+
+        if (nombre === '') {
+            alert('El campo Nombre no debe estar vacío.');
+            event.preventDefault();
+        } else if (nombre.length > 50) {
+            alert('El campo Nombre no debe tener más de 50 caracteres.');
+            event.preventDefault();
+        } else {
+            // Enviar el correo electrónico
+            emailjs.sendForm('service_id', 'template_id', form, 'user_id')
+                .then((response) => {
+                    console.log('SUCCESS!', response.status, response.text);
+                    alert('¡Mensaje enviado correctamente!');
+                    form.reset();
+                })
+                .catch((error) => {
+                    console.log('FAILED...', error);
+                    alert('Error al enviar el mensaje. Por favor, inténtelo de nuevo más tarde.');
+                });
+        }
+    });
+</script>
+
+        <!-- Sección de rodapie (FOOTER) -->
+        <footer class="footer">
+            <div class="contenido_footer">
+                <div class="footer_text_contenido">
+
+            <img class="presentación__logo" src="/assets/Sello Nicolás (PNG).png" alt="Logo_Drawniko">
+                        <div class="presentación__enlaces__iconos">
+                            <a href="https://www.linkedin.com/in/nicol%C3%A1s-mu%C3%B1oz-baci%C3%A1n-a11369237/">
+                                <img src="/assets/linkedin icono.png" alt="Linkedin icono" width="30" height="30">
+                            </a>
+                            <a href="https://www.instagram.com/drawniko3/">
+                                <img src="/assets/instagram.png" alt="Instagram icono" width="30" height="30">
+                            </a>
+                            <a href="https://github.com/Nicolas-Munoz-Bacian">
+                                <img src="/assets/Github icono.png" alt="Github icono" width="30" height="30">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Sección de derechos de autor (Copyright) -->
+                        <div class="derechos_de_autor_text">
+                <h1><p class="p_footer">©Drawniko. 2025, Iquique, Chile | Diseñado y Creado por DG Muñoz.</p></h1>
+            </div>
+        </footer>
+
+
+</body>
+
+
+</html>
