@@ -11,6 +11,7 @@
     --color-cyan:#02def3;
     --color-cian:#00ffff;
     --color-rojo:#e20613;
+    --color-morado:#6600ff;
     --fuente-principal:'Libre Franklin', 'Segoe UI', 'Arial', sans-serif;
     --fuente-principal-negrita:'Inter', 'Segoe UI', 'Arial', sans-serif;
     --fuente-principal-fina: 'Libre Franklin', 'Segoe UI', sans-serif;
@@ -348,7 +349,7 @@ nav a:hover{
 
 }
 
-/* Sinopsis */
+/* SINOPSIS */
 
 /* Título flotante encima del banner */
 .título__principal {
@@ -397,7 +398,7 @@ nav a:hover{
 /* Contenedor general */
 .seccion-temporadas {
     text-align: center;
-    padding: 2rem 1rem;
+    padding: 2rem 1rem 4rem;
 }
 
 /* Título centrado */
@@ -410,6 +411,7 @@ nav a:hover{
 
 /* Contenedor de botones */
 .contenedor-temporadas {
+    flex-direction: row;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -550,7 +552,164 @@ nav a:hover{
 
 .cuadro_2:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 20px #6600ff;
+  box-shadow: 0 0 20px var(--color-morado);
+}
+
+/*---------RESPONSIVIDAD----------*/
+
+/* =======================
+   MÓVIL (teléfono)
+   ======================= */
+@media (max-width: 600px) {
+
+  body {
+    background-attachment: scroll;
+  }
+
+  .page-wrapper {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  header {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 1rem;
+  }
+
+  .emblema_con_estrella_blanca {
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  .emblema_promocional {
+    height: 70px;
+    width: auto;
+    margin-left: 0;
+  }
+
+  .menu_contenido {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .ul_menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .btn {
+    font-size: 0.8rem;
+    padding: 0.45rem 0.9rem;
+  }
+
+  /* SINOPSIS */
+  .título__principal {
+    font-size: 1.8rem;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .sinopsis {
+    margin-top: 1.5rem;
+  }
+
+  .sinopsis_contenedor {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .cuadro_descripción {
+    font-size: 0.95rem;
+  }
+
+  /* TEMPORADAS (index) */
+  .seccion-temporadas {
+    padding: 1.5rem 0.75rem 2rem;
+  }
+
+  .titulo-temporadas {
+    font-size: 1.8rem;
+  }
+
+  .contenedor-temporadas {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .temporada img {
+    width: 90%;
+  }
+
+  /* GRID DE PERSONAJES (autobots.html) */
+  .personajes {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .grupo {
+    gap: 0.75rem;
+  }
+
+  .cuadro img,
+  .cuadro_2 img {
+    width: 100%;
+    height: auto;
+  }
+
+  .logo_autobot {
+    height: 120px;
+  }
+
+  /* PÁGINA DE PERSONAJE (bumblebee, T-AI, etc.) */
+  .personaje-page {
+    padding: 1.5rem 1rem 2.5rem;
+  }
+
+  .personaje-hero {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  /* Opcional: ficha arriba en móvil */
+  .personaje-ficha {
+    max-width: 430px;
+    width: 100%;
+    margin: 0 auto 1.5rem;
+  }
+
+  .personaje-intro {
+    padding: 1.25rem;
+  }
+
+  .personaje-nombre {
+    font-size: 1.3rem;
+  }
+
+  .personaje-sumario {
+    padding: 0.9rem 1rem;
+  }
+
+  .personaje-bloque-titulo {
+    font-size: 1.2rem;
+  }
+
+  /* FOOTER */
+  .footer {
+    padding: 1rem;
+  }
+
+  .presentación__logo {
+    height: 80px;
+  }
+
+  .derechos_de_autor_text {
+    text-align: center;
+    font-size: 0.75rem;
+    padding: 0.5rem 1rem 0.75rem;
+  }
 }
 
 /* Descripción y detalles de Personajes-Bots-Otros */
@@ -562,7 +721,7 @@ nav a:hover{
 .personaje-page {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1.5rem 3rem;
+  padding: 2.5rem 1.5rem 4rem;
   font-family: 'Libre Franklin', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: #f5f5f5;
 }
@@ -587,6 +746,7 @@ nav a:hover{
 
 /* Ficha derecha */
 .personaje-ficha {
+  max-width: 360px;
   flex: 1.1;
   background: radial-gradient(circle at top, rgba(255, 255, 255, 0.08), rgba(5, 5, 15, 0.95));
   border-radius: 1rem;
