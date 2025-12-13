@@ -792,13 +792,18 @@ nav a:hover{
   font-size: 0.9rem;
 }
 
+/* Etiqueta (izquierda) */
 .dato-label {
   font-weight: 700;
-  opacity: 0.9;
+  opacity: 0.95;
+  text-align: right;
+  white-space: nowrap;
 }
 
+/* Valor (derecha) */
 .dato-valor {
   opacity: 0.9;
+  text-align: left;
 }
 
 /* ================================
@@ -994,6 +999,104 @@ nav a:hover{
 /* Ajuste por si el alterno necesita un poquito menos de margen */
 .personaje-avatar--alterno {
   margin-top: 0.9rem;
+}
+  /*------------------------------ LIGHTBOX (UNA VEZ por página) ---------------------------------*/
+
+  /* =========================================
+   LIGHTBOX (Ficha + Habilidades + Galería)
+   ========================================= */
+
+/* Solo estas zonas mostrarán "zoom-in" */
+.personaje-ficha .personaje-avatar img,
+.personaje-media-grid img,
+#galeria img {
+  cursor: zoom-in;
+}
+
+/* Contenedor general */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 9999;
+}
+
+.lightbox.is-open {
+  display: block;
+}
+
+/* Fondo oscuro */
+.lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(6px);
+}
+
+/* Caja central */
+.lightbox__content {
+  position: relative;
+  margin: 0;
+  width: min(92vw, 1100px);
+  max-height: 88vh;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(5, 5, 15, 0.92);
+  border: 1px solid rgba(0, 255, 255, 0.25);
+  border-radius: 14px;
+  padding: 12px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+
+/* Imagen */
+.lightbox__img {
+  width: 100%;
+  height: auto;
+  max-height: calc(88vh - 60px);
+  object-fit: contain;
+  border-radius: 10px;
+  display: block;
+}
+
+/* Texto inferior */
+.lightbox__caption {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  opacity: 0.92;
+  color: #eaeaea;
+}
+
+/* Botón cerrar */
+.lightbox__close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.55);
+  color: white;
+  font-size: 26px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+/* Ajustes por dispositivo */
+@media (max-width: 600px) {
+  .lightbox__content {
+    width: 94vw;
+    max-height: 86vh;
+    padding: 10px;
+  }
+
+  .lightbox__caption {
+    font-size: 0.9rem;
+  }
 }
 
   /*------------------------------ DERECHOS DE AUTOR (COPYRIGHT) Y PIE DE PÁGINA (FOOTER) ---------------------------------*/

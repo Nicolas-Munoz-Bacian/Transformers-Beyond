@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transformers Beyond | Más allá de lo que ves | Bumblebee</title>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheet.css">
+    <script src="/javascript.js" defer></script>
     <link rel="shortcut icon" href="/assets/Autobots-Logotipo.png" type="image/x-icon">
 </head>
 
@@ -143,7 +144,7 @@
       <p>
         <!-- Aquí escribes la personalidad de Bumblebee -->
         Es un Autobot joven bastante alegré, jovial, noble y algo despreocupàdo, a veces le gusta presumir y mostrar su valia, pero 
-        también es valente en momentos de crisis, después de despertar en el Arca gracias a Spike, se hizo rapidamente su amigo
+        también es valiente en momentos de crisis, después de despertar en el Arca gracias a Spike, se hizo rapidamente su amigo
          y más adelante también de Carla Shimizu (Sobretodo por sus videojuegos y Animes preferidos).
       </p>
     </section>
@@ -252,9 +253,7 @@
         </footer>
 
         <script>
-  // ... aquí ya tienes tu código de volver arriba y emailjs ...
-
-  // --- Cambio de Modo Bot / Modo Alterno ---
+// --- Cambio de Modo Bot / Modo Alterno ---
   const transformacionTabs = document.querySelectorAll('.transformacion-tab');
 
   transformacionTabs.forEach((tab) => {
@@ -278,7 +277,81 @@
       });
     });
   });
+
+
+  // =========================
+  // LIGHTBOX: solo Ficha/Habilidades/Galería
+  // =========================
+
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const lightboxCaption = document.getElementById("lightboxCaption");
+
+  // Solo estas 3 zonas tendrán lightbox
+  const zoomableImages = document.querySelectorAll(
+    ".personaje-ficha .personaje-avatar img, .personaje-media-grid img, #galeria img"
+  );
+
+  function openLightbox(imgEl) {
+    const src = imgEl.getAttribute("src");
+    const alt = imgEl.getAttribute("alt") || "Imagen ampliada";
+
+    lightboxImg.src = src;
+    lightboxImg.alt = alt;
+
+    // caption: alt + si existe figcaption en el figure padre
+    const figure = imgEl.closest("figure");
+    const figcap = figure ? figure.querySelector("figcaption") : null;
+    const capText = figcap ? figcap.textContent.trim() : alt;
+
+    lightboxCaption.textContent = capText;
+
+    lightbox.classList.add("is-open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("is-open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+
+    // limpiar para evitar “flash” al abrir otra imagen
+    lightboxImg.src = "";
+    lightboxCaption.textContent = "";
+  }
+
+  // Click para abrir
+  zoomableImages.forEach((img) => {
+    img.addEventListener("click", () => openLightbox(img));
+  });
+
+  // Cerrar por backdrop o botón
+  lightbox.addEventListener("click", (e) => {
+    if (e.target.matches("[data-lightbox-close]")) {
+      closeLightbox();
+    }
+  });
+
+  // Cerrar con ESC
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && lightbox.classList.contains("is-open")) {
+      closeLightbox();
+    }
+  });
 </script>
+
+
+        <!-- LIGHTBOX (UNA VEZ por página) -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lightbox__backdrop" data-lightbox-close></div>
+
+  <figure class="lightbox__content" role="dialog" aria-modal="true" aria-label="Vista ampliada">
+    <button class="lightbox__close" type="button" aria-label="Cerrar" data-lightbox-close>×</button>
+    <img class="lightbox__img" id="lightboxImg" alt="">
+    <figcaption class="lightbox__caption" id="lightboxCaption"></figcaption>
+  </figure>
+</div>
 
 </body>
 
